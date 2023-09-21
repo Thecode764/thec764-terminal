@@ -3,11 +3,14 @@ import os
 import sys
 import platform
 import datetime
+
 system = sys.platform
+os.mkdir("var")
+os.mkdir("bin")
 command = input(Fore.GREEN + system + Fore.BLUE + "> ")
 if command == "terminal --help":
     print(Fore.GREEN + "./var: view files in var folder")
-    print(Fore.GREEN + "./bin: view files in bin folder")
+    print(Fore.GREEN + "./bin: view files in bin folder (Dont Show New Files)")
     print(Fore.GREEN + "./sh: refresh terminal")
     print(Fore.GREEN + "make .c: make c file")
     print(Fore.GREEN + "make .cpp: make cpp file")
@@ -22,6 +25,8 @@ if command == "terminal --help":
     print(Fore.GREEN + "AMD: your computer AMD")
     print(Fore.GREEN + "edition: windows editions")
     print(Fore.GREEN + "exit(): exit this terminal")
+    print(Fore.GREEN + "mkdir: make folder")
+    print(Fore.GREEN + "mkfile: make file")
 elif command == "./var":
     print(Fore.RED + "var folder is empty")
 elif command == "./bin":
@@ -75,6 +80,15 @@ elif command == "edition":
         print(Fore.RED + "this command not supported in your device")
 elif command == "exit()":
     sys.exit()
+elif command == "mkdir":
+    os.chdir("bin")
+    namefolder = input(Fore.RED + "Enter Folder Name:")
+    os.mkdir(namefolder)
+elif command == "mkfile":
+    dir = input("Enter Dir Name:")
+    os.chdir(dir)
+    namefile = input("Enter File Name:")
+    os.system("code " + namefile)
 else:
     print(Fore.RED + f"{command}: command not found")
 while command != "end":
@@ -97,6 +111,8 @@ while command != "end":
         print(Fore.GREEN + "AMD: your computer AMD")
         print(Fore.GREEN + "edition: windows editions")
         print(Fore.GREEN + "exit(): exit this terminal")
+        print(Fore.GREEN + "mkdir: make folder")
+        print(Fore.GREEN + "mkfile: make file")
     elif command == "./var":
         print(Fore.RED + "var folder is empty")
     elif command == "./bin":
@@ -149,5 +165,14 @@ while command != "end":
             print(Fore.RED + "this command not supported in your device")
     elif command == "exit()":
         sys.exit()
+    elif command == "mkdir":
+        os.chdir("bin")
+        namefolder = input(Fore.RED + "Enter Folder Name:")
+        os.mkdir(namefolder)
+    elif command == "mkfile":
+        dir = input("Enter Dir Name:")
+        os.chdir(dir)
+        namefile = input("Enter File Name:")
+        os.system("code " + namefile)
     else:
         print(Fore.RED + f"{command}: command not found")
