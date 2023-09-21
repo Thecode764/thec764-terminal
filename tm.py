@@ -16,6 +16,12 @@ if command == "terminal --help":
     print(Fore.GREEN + "processor: processor data")
     print(Fore.GREEN + "datetime: current date and time")
     print(Fore.GREEN + "ls: view dir")
+    print(Fore.GREEN + "python: run python")
+    print(Fore.GREEN + "python --version: python version")
+    print(Fore.GREEN + "python -i: install python modules")
+    print(Fore.GREEN + "AMD: your computer AMD")
+    print(Fore.GREEN + "edition: windows editions")
+    print(Fore.GREEN + "exit(): exit this terminal")
 elif command == "./var":
     print(Fore.RED + "var folder is empty")
 elif command == "./bin":
@@ -53,8 +59,24 @@ elif command == "clear":
 elif command == "ls":
     print(Fore.GREEN + "var")
     print(Fore.GREEN + "bin")
+elif command == "python":
+    os.systen("python3")
+elif command == "python --version":
+    print(Fore.GREEN + "VERSION: " + platform.python_version())
+elif command == "python -i":
+    pip = input(Fore.RED + "Enter Python Package Name:")
+    os.system("pip install " + pip)
+elif command == "AMD":
+    print(platform.machine())
+elif command == "edition":
+    if system == "win32":
+        print(Fore.GREEN + platform.win32_edition())
+    else:
+        print(Fore.RED + "this command not supported in your device")
+elif command == "exit()":
+    sys.exit()
 else:
-    print(Fore.RED + f"{command}: not found")
+    print(Fore.RED + f"{command}: command not found")
 while command != "end":
     system = sys.platform
     command = input(Fore.GREEN + system + Fore.BLUE + "> ")
@@ -69,6 +91,12 @@ while command != "end":
         print(Fore.GREEN + "processor: processor data")
         print(Fore.GREEN + "datetime: current date and time")
         print(Fore.GREEN + "ls: view dir")
+        print(Fore.GREEN + "python: run python")
+        print(Fore.GREEN + "python --version: python version")
+        print(Fore.GREEN + "python -i: install python modules")
+        print(Fore.GREEN + "AMD: your computer AMD")
+        print(Fore.GREEN + "edition: windows editions")
+        print(Fore.GREEN + "exit(): exit this terminal")
     elif command == "./var":
         print(Fore.RED + "var folder is empty")
     elif command == "./bin":
@@ -105,5 +133,21 @@ while command != "end":
     elif command == "ls":
         print(Fore.GREEN + "var")
         print(Fore.GREEN + "bin")
+    elif command == "python":
+        os.system("python3")
+    elif command == "python --version":
+        print(Fore.GREEN + "VERSION: " + platform.python_version())
+    elif command == "python -i":
+        pip = input(Fore.RED + "Enter Python Package Name:")
+        os.system("pip install " + pip)
+    elif command == "AMD":
+        print(platform.machine())
+    elif command == "edition":
+        if system == "win32":
+            print(Fore.GREEN + platform.win32_edition())
+        else:
+            print(Fore.RED + "this command not supported in your device")
+    elif command == "exit()":
+        sys.exit()
     else:
         print(Fore.RED + f"{command}: command not found")
